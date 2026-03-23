@@ -4,27 +4,27 @@ import { Search, Lightbulb, Rocket } from "lucide-react"
 const steps = [
   {
     number: "01",
-    title: "Анализ и стратегия",
-    description: "Глубоко погружаемся в ваши задачи, исследуем идеи и формируем стратегию для долгосрочного успеха.",
+    title: "Выбираете событие",
+    description: "Выбираете тур из каталога или рассказываете о желаемом событии — мы подберём идеальный вариант под ваши интересы и даты.",
     icon: <Search className="w-8 h-8" />,
     mockup: "discovery",
-    gradient: "from-blue-500/20 to-blue-600/10",
+    gradient: "from-emerald-500/20 to-emerald-600/10",
   },
   {
     number: "02",
-    title: "Разработка и тесты",
-    description: "Создаем решения под ваши цели и тщательно тестируем их для максимальной надежности.",
+    title: "Мы всё организуем",
+    description: "Берём на себя логистику, проживание, билеты на событие и экскурсионную программу — вам остаётся только собрать чемодан.",
     icon: <Lightbulb className="w-8 h-8" />,
     mockup: "development",
-    gradient: "from-purple-500/20 to-purple-600/10",
+    gradient: "from-teal-500/20 to-teal-600/10",
   },
   {
     number: "03",
-    title: "Запуск и поддержка",
-    description: "Бесшовно внедряем решение и обеспечиваем его стабильную работу с постоянной поддержкой.",
+    title: "Отправляетесь в путь",
+    description: "Едете и погружаетесь в атмосферу уникального события. Наш сопровождающий гид всегда рядом, чтобы поездка прошла без забот.",
     icon: <Rocket className="w-8 h-8" />,
     mockup: "launch",
-    gradient: "from-green-500/20 to-green-600/10",
+    gradient: "from-cyan-500/20 to-cyan-600/10",
   },
 ]
 
@@ -39,9 +39,9 @@ export default function HowWeWork() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Как мы работаем</h2>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">Как это работает</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Простой и эффективный подход к развитию вашего бренда на высшем уровне.
+            Три простых шага — и вы уже в центре самого яркого события России.
           </p>
         </motion.div>
 
@@ -160,9 +160,9 @@ export default function HowWeWork() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="text-4xl font-bold text-gray-600">{step.number}</div>
-                  <div className="text-blue-400">{step.icon}</div>
+                  <div className="text-emerald-400">{step.icon}</div>
                 </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
                   {step.title}
                 </h3>
                 <p className="text-gray-400 leading-relaxed">{step.description}</p>

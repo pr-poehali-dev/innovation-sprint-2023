@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Booking request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Ivan Ivanov",
+        "phone": "+79045327706",
+        "tour_title": "Winter Sochi Tour",
+        "tour_date": "February 14 2026",
+        "persons": 2
+      },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": { "email": "test@test.com" },
+      "expectedStatus": 400
+    }
+  ]
+}

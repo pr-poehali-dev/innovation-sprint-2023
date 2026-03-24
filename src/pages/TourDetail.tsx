@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 import Icon from "@/components/ui/icon"
 import { tours, getCategoryColor, getDifficultyLabel, getDifficultyColor } from "@/data/tours"
+import BookingModal from "@/components/BookingModal"
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr)
@@ -14,6 +15,7 @@ export default function TourDetail() {
   const navigate = useNavigate()
   const [activePhoto, setActivePhoto] = useState(0)
   const [activeTab, setActiveTab] = useState<"program" | "included" | "details">("program")
+  const [bookingOpen, setBookingOpen] = useState(false)
 
   const tour = tours.find((t) => t.id === id)
 
@@ -297,6 +299,7 @@ export default function TourDetail() {
 
                 <button
                   disabled={tour.soldOut}
+                  onClick={() => !tour.soldOut && setBookingOpen(true)}
                   className={`w-full py-4 rounded-xl font-bold text-base transition-all duration-200 ${
                     tour.soldOut
                       ? "bg-gray-700 text-gray-500 cursor-not-allowed"
@@ -307,7 +310,7 @@ export default function TourDetail() {
                 </button>
 
                 <p className="text-center text-gray-500 text-xs mt-3">
-                  Или позвоните нам: <a href="tel:+74951234567" className="text-emerald-400 hover:underline">+7 (495) 123-45-67</a>
+                  Или позвоните нам: <a href="tel:+79045327706" className="text-emerald-400 hover:underline">+7 (904) 532-77-06</a>
                 </p>
 
                 <div className="mt-6 pt-6 border-t border-white/10 space-y-2.5">
@@ -365,6 +368,14 @@ export default function TourDetail() {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        tourTitle={tour.title}
+        tourDate={`${formatDate(tour.dateStart)} — ${formatDate(tour.dateEnd)}`}
+        priceLabel={tour.priceLabel}
+      />
     </div>
   )
 }

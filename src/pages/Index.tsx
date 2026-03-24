@@ -6,6 +6,7 @@ import {
   Hero,
   HowWeWork,
   InnovativeServices,
+  FeaturedTours,
   ROICalculatorHome,
   AnimatedFooter,
   MouseMoveEffect,
@@ -24,6 +25,7 @@ export default function Index() {
         <Hero />
         <HowWeWork />
         <InnovativeServices />
+        <FeaturedTours />
         <ROICalculatorHome />
         <AnimatedFooter />
       </div>

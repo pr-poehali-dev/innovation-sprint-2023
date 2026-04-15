@@ -109,10 +109,7 @@ export default function FeaturedTours() {
                           {tour.duration} {tour.duration < 5 ? "дня" : "дней"}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Icon name="Star" size={12} className="text-amber-400 fill-amber-400" />
-                        <span className="text-white text-xs font-semibold">{tour.rating}</span>
-                      </div>
+
                     </div>
                   </div>
                 </div>

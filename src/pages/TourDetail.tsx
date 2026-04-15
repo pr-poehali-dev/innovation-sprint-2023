@@ -99,20 +99,7 @@ export default function TourDetail() {
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{tour.title}</h1>
 
-              {/* Rating */}
               <div className="flex items-center gap-4 flex-wrap">
-                <div className="flex items-center gap-1.5">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Icon
-                      key={star}
-                      name="Star"
-                      size={16}
-                      className={star <= Math.round(tour.rating) ? "text-amber-400 fill-amber-400" : "text-gray-600"}
-                    />
-                  ))}
-                  <span className="text-white font-bold ml-1">{tour.rating}</span>
-                  <span className="text-gray-400 text-sm">({tour.reviewsCount} отзывов)</span>
-                </div>
                 <div className={`flex items-center gap-1.5 text-sm ${getDifficultyColor(tour.difficulty)}`}>
                   <Icon name="TrendingUp" size={14} />
                   {getDifficultyLabel(tour.difficulty)} уровень

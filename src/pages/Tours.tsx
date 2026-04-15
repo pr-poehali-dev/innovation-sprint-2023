@@ -109,13 +109,8 @@ function TourCard({ tour, index }: { tour: Tour; index: number }) {
               </div>
             </div>
 
-            {/* Rating + CTA */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <Icon name="Star" size={14} className="text-amber-400 fill-amber-400" />
-                <span className="text-white font-semibold text-sm">{tour.rating}</span>
-                <span className="text-gray-500 text-xs">({tour.reviewsCount})</span>
-              </div>
+            {/* CTA */}
+            <div className="flex items-center justify-end">
               <span className="text-emerald-400 text-sm font-medium group-hover:text-emerald-300 flex items-center gap-1">
                 Подробнее <Icon name="ArrowRight" size={14} />
               </span>

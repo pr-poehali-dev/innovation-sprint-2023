@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react"
-import { Link } from "react-router-dom"
+import { useState, useMemo, useEffect } from "react"
+import { Link, useSearchParams } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import Icon from "@/components/ui/icon"
 import { tours, getCategoryColor, getDifficultyLabel, getDifficultyColor, type Tour } from "@/data/tours"
@@ -123,9 +123,17 @@ function TourCard({ tour, index }: { tour: Tour; index: number }) {
 }
 
 export default function ToursPage() {
+  const [searchParams] = useSearchParams()
   const [activeCategory, setActiveCategory] = useState("all")
   const [sortBy, setSortBy] = useState("date")
   const [search, setSearch] = useState("")
+
+  useEffect(() => {
+    const cat = searchParams.get("category")
+    if (cat && CATEGORIES.some((c) => c.value === cat)) {
+      setActiveCategory(cat)
+    }
+  }, [searchParams])
 
   const filtered = useMemo(() => {
     let result = tours.filter((t) => {

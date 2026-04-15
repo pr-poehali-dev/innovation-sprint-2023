@@ -2,6 +2,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Instagram, Twitter, Linkedin, Youtube, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { Link } from "react-router-dom"
 import AnimatedButton from "./AnimatedButton"
 
 export default function AnimatedFooter() {
@@ -124,27 +125,27 @@ export default function AnimatedFooter() {
               <h4 className="text-lg font-semibold text-white mb-6">Направления</h4>
               <ul className="space-y-4">
                 {[
-                  "Фестивальные туры",
-                  "Исторические туры",
-                  "Культурные события",
-                  "Спортивные туры",
-                  "Корпоративные туры",
-                  "Индивидуальные туры",
-                ].map((link, index) => (
+                  { label: "Фестивальные туры", cat: "festival" },
+                  { label: "Исторические туры", cat: "history" },
+                  { label: "Культурные события", cat: "culture" },
+                  { label: "Спортивные туры", cat: "sport" },
+                  { label: "Корпоративные туры", cat: "corporate" },
+                  { label: "Индивидуальные туры", cat: "custom" },
+                ].map((item, index) => (
                   <motion.li
-                    key={link}
+                    key={item.cat}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <a
-                      href="#"
+                    <Link
+                      to={`/tours?category=${item.cat}`}
                       className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center justify-center sm:justify-start group"
                     >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-blue-500 transition-all duration-200 mr-0 group-hover:mr-2" />
-                      {link}
-                    </a>
+                      <span className="w-0 group-hover:w-2 h-0.5 bg-fuchsia-500 transition-all duration-200 mr-0 group-hover:mr-2" />
+                      {item.label}
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -174,11 +175,12 @@ export default function AnimatedFooter() {
               </div>
 
               <div className="mt-8">
-                <a href="#get-started">
-                  <AnimatedButton className="w-full bg-emerald-500 text-white hover:bg-emerald-600">
-                    Подобрать тур
-                  </AnimatedButton>
-                </a>
+                <Link
+                  to="/tours"
+                  className="block w-full text-center px-6 py-3 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-semibold rounded-xl transition-colors duration-200"
+                >
+                  Подобрать тур
+                </Link>
               </div>
             </motion.div>
           </div>

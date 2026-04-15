@@ -5,7 +5,6 @@ import {
   Navbar,
   Hero,
   HowWeWork,
-  InnovativeServices,
   FeaturedTours,
   ROICalculatorHome,
   AnimatedFooter,
@@ -24,7 +23,6 @@ export default function Index() {
         <Navbar />
         <Hero />
         <HowWeWork />
-        <InnovativeServices />
         <FeaturedTours />
         <ROICalculatorHome />
         <AnimatedFooter />

@@ -1,32 +1,14 @@
-import {
-  BackgroundPaths,
-  AnimatedBackground,
-  BackgroundStripes,
-  Navbar,
-  Hero,
-  HowWeWork,
-  FeaturedTours,
-  ROICalculatorHome,
-  AnimatedFooter,
-  MouseMoveEffect,
-} from "@/components/landing"
+import { Navbar, Hero, HowWeWork, FeaturedTours, ROICalculatorHome, Footer } from "@/components/landing"
 
 export default function Index() {
   return (
-    <div className="relative min-h-screen bg-black">
-      <MouseMoveEffect />
-      <BackgroundPaths />
-      <AnimatedBackground />
-      <BackgroundStripes />
-
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <HowWeWork />
-        <FeaturedTours />
-        <ROICalculatorHome />
-        <AnimatedFooter />
-      </div>
+    <div className="min-h-screen bg-[#1a0a2e]">
+      <Navbar />
+      <Hero />
+      <HowWeWork />
+      <FeaturedTours />
+      <ROICalculatorHome />
+      <Footer />
     </div>
   )
 }

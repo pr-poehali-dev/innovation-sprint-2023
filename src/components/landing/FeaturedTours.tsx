@@ -1,5 +1,7 @@
+import { useState } from "react"
 import Icon from "@/components/ui/icon"
 import { tours } from "@/data/tours"
+import BookingModal from "./BookingModal"
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr)
@@ -9,7 +11,11 @@ function formatDate(dateStr: string) {
 const featured = tours.filter((t) => t.hot).slice(0, 3)
 
 export default function FeaturedTours() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedTour, setSelectedTour] = useState("")
+
   return (
+    <>
     <section id="tours" className="py-20 bg-[#200c38]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -90,14 +96,21 @@ export default function FeaturedTours() {
             <h3 className="text-white text-xl font-bold mb-1">Не нашли подходящий тур?</h3>
             <p className="text-purple-300 text-sm">Напишите нам — подберём под ваши даты и интересы</p>
           </div>
-          <a
-            href="#contact"
+          <button
+            onClick={() => { setSelectedTour(""); setModalOpen(true) }}
             className="px-8 py-3.5 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shrink-0"
           >
-            Связаться с нами
-          </a>
+            Оставить заявку
+          </button>
         </div>
       </div>
     </section>
+
+    <BookingModal
+      isOpen={modalOpen}
+      onClose={() => setModalOpen(false)}
+      tourTitle={selectedTour}
+    />
+    </>
   )
 }

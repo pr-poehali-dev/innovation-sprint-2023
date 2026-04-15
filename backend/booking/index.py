@@ -39,38 +39,38 @@ def handler(event: dict, context) -> dict:
 
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
     from_email = "Kushtan5555@gmail.com"
-    to_email = "Kushtan5555@gmail.com"
+    to_email = "89045327706taisiya@gmail.com"
 
-    subject = f"🏔 Новая заявка на бронирование: {tour_title}"
+    subject = f"🎭 Новая заявка — Калейдоскоп событий: {tour_title}"
 
     html_body = f"""
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f9f9f9; padding: 24px; border-radius: 12px;">
-      <h2 style="color: #10b981; margin-bottom: 4px;">Новая заявка на бронирование</h2>
-      <p style="color: #666; margin-top: 0; margin-bottom: 24px;">Тур: <strong style="color: #111;">{tour_title}</strong></p>
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a0a2e; padding: 28px; border-radius: 16px; border: 1px solid #4c1d6e;">
+      <h2 style="color: #f472b6; margin-bottom: 4px;">Новая заявка на бронирование</h2>
+      <p style="color: #c084fc; margin-top: 0; margin-bottom: 24px;">Тур: <strong style="color: #fff;">{tour_title}</strong></p>
 
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #888; width: 40%;">Имя</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #111;">{name}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #a78bfa; width: 40%;">ФИО</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; font-weight: bold; color: #fff;">{name}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #888;">Телефон</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; font-weight: bold; color: #111;">{phone}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #a78bfa;">Телефон</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; font-weight: bold; color: #fff;">{phone}</td>
         </tr>
-        {"<tr><td style='padding: 10px 0; border-bottom: 1px solid #eee; color: #888;'>Email</td><td style='padding: 10px 0; border-bottom: 1px solid #eee; color: #111;'>" + email + "</td></tr>" if email else ""}
+        {"<tr><td style='padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #a78bfa;'>Email</td><td style='padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #e9d5ff;'>" + email + "</td></tr>" if email else ""}
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #888;">Дата тура</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #111;">{tour_date}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #a78bfa;">Дата тура</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #e9d5ff;">{tour_date}</td>
         </tr>
         <tr>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #888;">Количество человек</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #111;">{persons}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #a78bfa;">Количество человек</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #4c1d6e; color: #e9d5ff;">{persons}</td>
         </tr>
-        {"<tr><td style='padding: 10px 0; color: #888;'>Комментарий</td><td style='padding: 10px 0; color: #111;'>" + comment + "</td></tr>" if comment else ""}
+        {"<tr><td style='padding: 10px 0; color: #a78bfa;'>Комментарий</td><td style='padding: 10px 0; color: #e9d5ff;'>" + comment + "</td></tr>" if comment else ""}
       </table>
 
-      <div style="margin-top: 24px; padding: 16px; background: #ecfdf5; border-radius: 8px; border-left: 4px solid #10b981;">
-        <p style="margin: 0; color: #065f46; font-size: 14px;">
+      <div style="margin-top: 24px; padding: 16px; background: #2d0a4e; border-radius: 8px; border-left: 4px solid #f472b6;">
+        <p style="margin: 0; color: #f9a8d4; font-size: 14px;">
           Свяжитесь с клиентом в течение 24 часов по телефону <strong>{phone}</strong>
         </p>
       </div>

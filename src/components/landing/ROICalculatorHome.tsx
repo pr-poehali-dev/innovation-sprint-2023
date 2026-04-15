@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { TrendingUp, Users, Star, MapPin } from "lucide-react"
+import BookingModal from "./BookingModal"
 
 const tourTypes = [
   { id: "festival", name: "Фестивальный", icon: <Star className="w-5 h-5" />, pricePerPerson: 18000, description: "Музыка и культура" },
@@ -11,11 +12,13 @@ const tourTypes = [
 export default function ROICalculatorHome() {
   const [people, setPeople] = useState(2)
   const [selectedTour, setSelectedTour] = useState("festival")
+  const [modalOpen, setModalOpen] = useState(false)
 
   const pricePerPerson = tourTypes.find((t) => t.id === selectedTour)?.pricePerPerson || 18000
   const total = people * pricePerPerson
 
   return (
+    <>
     <section id="calc" className="py-20 bg-[#1a0a2e]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -91,12 +94,12 @@ export default function ROICalculatorHome() {
                 </p>
               </div>
 
-              <a
-                href="#contact"
-                className="w-full text-center px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl text-lg"
+              <button
+                onClick={() => setModalOpen(true)}
+                className="w-full px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl text-lg"
               >
                 Оформить заявку
-              </a>
+              </button>
               <p className="text-purple-400 text-xs text-center">
                 Точную стоимость уточним при звонке
               </p>
@@ -105,5 +108,12 @@ export default function ROICalculatorHome() {
         </div>
       </div>
     </section>
+
+    <BookingModal
+      isOpen={modalOpen}
+      onClose={() => setModalOpen(false)}
+      tourTitle={tourTypes.find((t) => t.id === selectedTour)?.name ?? ""}
+    />
+    </>
   )
 }

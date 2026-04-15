@@ -109,19 +109,7 @@ export default function Hero() {
               Наши гиды — люди, влюблённые в то событие, к которому они вас везут.
             </p>
 
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { value: "200+", label: "Событийных туров" },
-                { value: "98%", label: "Довольных туристов" },
-                { value: "50+", label: "Уникальных событий" },
-                { value: "10 лет", label: "На туристическом рынке" },
-              ].map((s) => (
-                <div key={s.label} className="bg-purple-900/40 rounded-xl p-4 border border-purple-600/30">
-                  <p className="text-pink-400 text-xl font-bold">{s.value}</p>
-                  <p className="text-purple-300 text-xs mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </div>
+
           </div>
 
         </div>
